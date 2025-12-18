@@ -10,6 +10,11 @@ const DATA_FILE = path.join(__dirname, 'data', 'equipment.json');
 app.use(cors());
 app.use(express.json());
 
+// Root route - health check
+app.get('/', (req, res) => {
+  res.json({ message: 'Equipment Tracker API is running', status: 'ok' });
+});
+
 // Create data folder if it doesn't exist
 if (!fs.existsSync(path.dirname(DATA_FILE))) {
   fs.mkdirSync(path.dirname(DATA_FILE), { recursive: true });

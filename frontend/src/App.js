@@ -11,14 +11,16 @@ function App() {
     fetchEquipment();
   }, []);
 
+  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
   const fetchEquipment = async () => {
-    const response = await fetch('http://localhost:5000/api/equipment');
+    const response = await fetch(`${API_URL}/api/equipment`);
     const data = await response.json();
     setEquipment(data);
   };
 
   const handleAdd = async (formData) => {
-    await fetch('http://localhost:5000/api/equipment', {
+    await fetch(`${API_URL}/api/equipment`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
@@ -27,7 +29,7 @@ function App() {
   };
 
   const handleUpdate = async (id, formData) => {
-    await fetch(`http://localhost:5000/api/equipment/${id}`, {
+    await fetch(`${API_URL}/api/equipment/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
@@ -38,7 +40,7 @@ function App() {
 
   const handleDelete = async (id) => {
     if (window.confirm('Delete this equipment?')) {
-      await fetch(`http://localhost:5000/api/equipment/${id}`, {
+      await fetch(`${API_URL}/api/equipment/${id}`, {
         method: 'DELETE'
       });
       fetchEquipment();

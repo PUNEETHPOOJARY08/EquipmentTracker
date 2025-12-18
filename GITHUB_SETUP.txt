@@ -1,0 +1,37 @@
+QUICK STEPS TO PUSH TO GITHUB
+==============================
+
+1. INSTALL GIT:
+   - Download from: https://git-scm.com/download/win
+   - Install with default settings
+   - RESTART PowerShell
+
+2. CONFIGURE GIT (first time only):
+   git config --global user.name "Your Name"
+   git config --global user.email "your.email@example.com"
+
+3. PUSH TO GITHUB:
+   Run these commands in PowerShell:
+   
+   cd C:\Users\ASHWINI\Desktop\EquipmentTracker
+   git init
+   git add .
+   git commit -m "Initial commit: Equipment Tracker application"
+   git remote add origin https://github.com/PUNEETHPOOJARY08/EquipmentTracker.git
+   git branch -M main
+   git push -u origin main
+
+4. WHEN ASKED FOR PASSWORD:
+   - Username: Your GitHub username
+   - Password: Use a Personal Access Token (not your regular password)
+   
+   To create a token:
+   - Go to: https://github.com/settings/tokens
+   - Click "Generate new token (classic)"
+   - Select scope: "repo"
+   - Copy the token and use it as password
+
+OR USE THE SCRIPT:
+   After installing Git, just run:
+   .\push-to-github.ps1
+

@@ -1,0 +1,10 @@
+.App {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.App h1 {
+  text-align: center;
+}
+
